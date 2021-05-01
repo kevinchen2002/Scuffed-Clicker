@@ -35,7 +35,10 @@ def write(string):
 
 
 def typeKey(string):
-    pyautogui.write([string])
+    if string == 'enter':
+        pyautogui.write(['enter'])
+    if string == 'backspace':
+        pyautogui.write(['backspace'])
 
 
 def scrollUp(units):
@@ -59,10 +62,6 @@ def waitUntil(targetTime):
             print(currentTime)
         else:
             continue
-
-
-def enterKeyboard(message):
-    pyautogui.write(message)
 
 
 # imageClick("chrome.png")
