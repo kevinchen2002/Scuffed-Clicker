@@ -49,10 +49,9 @@ def parse_line(line):
         print(second_param)
 
         moveClick(int(first_param), int(second_param))
-        
-
 
 lines = read_by_line("input.txt")
 if are_commands_valid(lines):
     for line in lines:
         parse_line(line)
+
