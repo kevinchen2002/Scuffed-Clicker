@@ -1,0 +1,7 @@
+imageClick (edge.png)
+imageClick (newtab.png)
+imageClick (Capture.png)
+write (https://docs.google.com/forms/d/e/1FAIpQLSdHySxWfTJT1k-sPbSH4JpK3Fs59fyaWVuinBWEpNwrpFn6Qg/viewform)
+typeKey (enter)
+click (500,500)
+scrollDown (400)

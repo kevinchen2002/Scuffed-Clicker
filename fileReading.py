@@ -87,25 +87,26 @@ def parse_line(line):
         print(command)
         param = line.split(" ")[1]
         param = param[1: len(param)-1]
-        typeKey(param)   
+        scrollUp(param)   
 
     command = line[0: 10].lower()
     if command == "scrolldown":
         print(command)
         param = line.split(" ")[1]
         param = param[1: len(param)-1]
-        typeKey(param)
+        scrollDown(param)
 
     command = line[0: 5].lower()
     if command == "delay":
         print(command)
         param = line.split(" ")[1]
+
         param = param[1: len(param)-1]
-        write(param)
+        delay(param)
 
 
 
-lines = read_by_line("input.txt")
+lines = read_by_line("order.txt")
 if are_commands_valid(lines):
     for line in lines:
         time.sleep(1)

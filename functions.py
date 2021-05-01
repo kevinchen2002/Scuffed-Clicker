@@ -3,7 +3,7 @@ import datetime
 import time
 
 mouseSpeed = 0.5
-timeOut = 30
+timeOut = 10
 
 
 def moveClick(xPos, yPos):
@@ -39,6 +39,8 @@ def typeKey(string):
         pyautogui.write(['enter'])
     if string == 'backspace':
         pyautogui.write(['backspace'])
+    else:
+        pyautogui.write([string])
 
 
 def scrollUp(units):
