@@ -30,10 +30,7 @@ pyautogui.click()
 
 
 # wait for image
-<<<<<<< HEAD
 # click image
 # click and type
-=======
 # click image 
 # click and type 
->>>>>>> e014f627f5746a52a0470f5f2603aebac5be3cfb

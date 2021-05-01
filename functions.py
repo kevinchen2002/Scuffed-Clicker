@@ -3,7 +3,7 @@ import datetime
 import time
 
 mouseSpeed = 0.5
-timeOut = 5
+timeOut = 30
 
 
 def moveClick(xPos, yPos):
@@ -26,6 +26,26 @@ def imageClick(fileName):
             continue
 
 
+def move(xPos, yPos):
+    pyautogui.moveTo(xPos, yPos, duration=mouseSpeed)
+
+
+def write(string):
+    pyautogui.write(string)
+
+
+def typeKey(string):
+    pyautogui.write([string])
+
+
+def scrollUp(units):
+    pyautogui.scroll(units)
+
+
+def scrollDown(units):
+    pyautogui.scroll(-units)
+
+
 def delay(delaySeconds):
     sleep(delaySeconds)
 
@@ -45,9 +65,9 @@ def enterKeyboard(message):
     pyautogui.write(message)
 
 
-#imageClick("chrome.png")
-#enterKeyboard("youtube.com")
-#enterKeyboard(['enter'])
+# imageClick("chrome.png")
+# enterKeyboard("youtube.com")
+# enterKeyboard(['enter'])
 # imageClick("chrome.png")
 # enterKeyboard(0, 0, "youtube.com")
 # imageClick("youtube.png")
