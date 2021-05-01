@@ -9,7 +9,7 @@ pyautogui.moveTo(100, 200, duration=0.5)
 print ("Hello this is Josh")
 
 print("hello world")
-image = pyautogui.locateOnScreen("1.PNG")
+image = pyautogui.locateOnScreen("Capture.PNG")
 print(image)
 pyautogui.moveTo(image[0]+(image[2]/2), image[1]+(image[3]/2), duration=0.5)
 pyautogui.click()
