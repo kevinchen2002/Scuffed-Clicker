@@ -2,12 +2,12 @@ import pyautogui
 import datetime
 import time
 
-mouseSpeed = 0.5
-timeOut = 5
+# mouseSpeed = 0.5
+# timeOut = 5
 
 
 def moveClick(xPos, yPos):
-    pyautogui.moveTo(100, 100, duration=mouseSpeed)
+    pyautogui.moveTo(xPos, yPos, duration=mouseSpeed)
     pyautogui.click()
 
 
@@ -41,6 +41,6 @@ def enterKeyboard(xPos, yPos, message):
     pyautogui.write(message)
 
 
-imageClick("chrome.png")
-enterKeyboard(0, 0, "youtube.com")
-imageClick("youtube.png")
+# imageClick("chrome.png")
+# enterKeyboard(0, 0, "youtube.com")
+# imageClick("youtube.png")
