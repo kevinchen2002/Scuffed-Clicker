@@ -1,0 +1,8 @@
+click (x,y)
+move (x,y)
+find (imageFile)
+click (imageFile)
+type (string)
+type (comma-seperated list of keys)
+scrollUp (units)
+scrollDown (units)
