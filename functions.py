@@ -25,6 +25,20 @@ def imageClick(fileName):
         except:
             continue
 
+def move(xPos, yPos):
+    pyautogui.moveTo(xPos, yPos, duration=mouseSpeed)
+
+def write(string):
+    pyautogui.write(string)
+
+def typeKey(string):
+    pyautogui.write([string])
+
+def scrollUp(units):
+    pyautogui.scroll(units)
+
+def scrollDown(units):
+    pyautogui.scroll(-units)
 
 def delay(delaySeconds):
     sleep(delaySeconds)
