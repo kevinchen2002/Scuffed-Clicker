@@ -26,21 +26,28 @@ def imageClick(fileName):
             continue
 
 
-def waitTime(targetTime):
-    # todo: convert target time into something the program can use
+def delay(delaySeconds):
+    sleep(delaySeconds)
+
+
+def waitUntil(targetTime):
+
     while True:
-        currentTime = datetime.datetime.now()
+        currentTime = time.time()
         if (targetTime > currentTime):
             sleep(1)
+            print(currentTime)
         else:
             continue
 
 
-def enterKeyboard(xPos, yPos, message):
-    #pyautogui.moveTo(xPos, yPos)
+def enterKeyboard(message):
     pyautogui.write(message)
 
 
+imageClick("chrome.png")
+enterKeyboard("youtube.com")
+enterKeyboard(['enter'])
 # imageClick("chrome.png")
 # enterKeyboard(0, 0, "youtube.com")
 # imageClick("youtube.png")
