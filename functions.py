@@ -2,8 +2,8 @@ import pyautogui
 import datetime
 import time
 
-# mouseSpeed = 0.5
-# timeOut = 5
+mouseSpeed = 0.5
+timeOut = 5
 
 
 def moveClick(xPos, yPos):

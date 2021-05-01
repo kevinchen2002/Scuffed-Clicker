@@ -13,7 +13,7 @@ print("hello world")
 image = pyautogui.locateOnScreen("Capture.png")
 print(image)
 pyautogui.moveTo(image[0]+(image[2]/2), image[1]+(image[3]/2), duration=0.5)
-# pyautogui.click()
+#pyautogui.click()
 pyautogui.click()
 
 # pyautogui.click('Capture.png')
@@ -30,5 +30,10 @@ pyautogui.click()
 
 
 # wait for image
+<<<<<<< HEAD
 # click image
 # click and type
+=======
+# click image 
+# click and type 
+>>>>>>> e014f627f5746a52a0470f5f2603aebac5be3cfb
