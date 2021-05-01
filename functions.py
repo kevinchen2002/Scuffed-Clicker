@@ -56,7 +56,6 @@ def delay(delaySeconds):
 
 
 def waitUntil(targetTime):
-
     while True:
         currentTime = time.time()
         if (targetTime > currentTime):

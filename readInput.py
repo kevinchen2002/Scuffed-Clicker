@@ -13,7 +13,6 @@ moveFind = re.compile(r"""move\((\d*),(\d*)\)""")
 def parse_line(line):
     moveCoordinates = moveFind.search(line)
     print(moveCoordinates.group(1))
-    moveClick(moveCoordinates.group(1), moveCoordinates.group(2))
 
 
 parse_line("move(123,51)")

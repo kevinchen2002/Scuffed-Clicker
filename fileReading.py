@@ -38,7 +38,7 @@ def are_commands_valid(list_of_lines):
 
 # reads line and excutes appropiate command
 def parse_line(line):
-    
+
     command = line[0: 10].lower()
     if command == "imageclick":
         print(command)
@@ -66,6 +66,8 @@ def parse_line(line):
         print(first_param)
         print(second_param)
         move(int(first_param), int(second_param))
+<<<<<<< HEAD
+=======
 
     command = line[0: 5].lower()
     if command == "write":
@@ -104,6 +106,7 @@ def parse_line(line):
         param = param[1: len(param)-1]
         delay(param)
 
+>>>>>>> fb5879655aac99d1d11587f50cd5b1df4a79781e
 
 
 lines = read_by_line("order.txt")
