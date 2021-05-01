@@ -7,14 +7,13 @@ pyautogui.moveTo(200, 200, duration=0.5)
 pyautogui.moveTo(100, 200, duration=0.5)
 pyautogui.move(-100, 0, duration=0.5)
 
-print ("Hello this is Josh")
+print("Hello this is Josh")
 
 print("hello world")
 image = pyautogui.locateOnScreen("Capture.png")
 print(image)
 pyautogui.moveTo(image[0]+(image[2]/2), image[1]+(image[3]/2), duration=0.5)
-<<<<<<< HEAD
-#pyautogui.click()
+# pyautogui.click()
 pyautogui.click()
 
 # pyautogui.click('Capture.png')
@@ -22,16 +21,14 @@ pyautogui.write(['backspace'])
 pyautogui.write("google.ca")
 pyautogui.write(['enter'])
 
-#returns the current mouse position
+# returns the current mouse position
 #p = pyautogui.position()
 
-#you can use pyautogui.click(10, 10, button='left')
+# you can use pyautogui.click(10, 10, button='left')
 
-=======
 pyautogui.click()
 
 
 # wait for image
-# click image 
-# click and type 
->>>>>>> 8385f559a9a2f5c64c0c3463b7b4f8e4bfa95cb4
+# click image
+# click and type
