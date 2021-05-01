@@ -45,9 +45,9 @@ def enterKeyboard(message):
     pyautogui.write(message)
 
 
-imageClick("chrome.png")
-enterKeyboard("youtube.com")
-enterKeyboard(['enter'])
+#imageClick("chrome.png")
+#enterKeyboard("youtube.com")
+#enterKeyboard(['enter'])
 # imageClick("chrome.png")
 # enterKeyboard(0, 0, "youtube.com")
 # imageClick("youtube.png")

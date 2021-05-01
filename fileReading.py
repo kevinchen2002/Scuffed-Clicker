@@ -1,10 +1,14 @@
 from pathlib import Path
 import os
 from functions import *
+import re
+import pyautogui
 
-
+moveFind = re.compile(r"""move\((\d*),(\d*)\)""")
 
 # read the file
+
+
 def read_by_line(filename):
 
     input_file = open(Path("./") / filename)
@@ -13,6 +17,8 @@ def read_by_line(filename):
     return lines
 
 # determines if all commands and params in the text file are valid
+
+
 def are_commands_valid(list_of_lines):
 
     for line in list_of_lines:
@@ -35,24 +41,16 @@ def are_commands_valid(list_of_lines):
     return True
 
 
-
 # reads line and excutes appropiate command
 def parse_line(line):
-    
-    command = line[0: 5].lower()
-    print(command)
-    if command == "click":
-        params = line.split(" ")[1]
-        first_param = params[1: len(params)-2].split(",")[0]
-        second_param = params[1: len(params)-2].split(",")[1]
-        print(first_param)
-        print(second_param)
-
-        moveClick(int(first_param), int(second_param))
-        
+    moveCoordinates = moveFind.search(line)
+    print(moveCoordinates.group(1))
+    moveClick(moveCoordinates.group(1), moveCoordinates.group(2))
 
 
-lines = read_by_line("input.txt")
-if are_commands_valid(lines):
-    for line in lines:
-        parse_line(line)
+#lines = read_by_line("input.txt")
+# if are_commands_valid(lines):
+#    for line in lines:
+#        parse_line(line)
+
+parse_line("move(123,51)")
