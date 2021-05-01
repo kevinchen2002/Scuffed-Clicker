@@ -13,3 +13,8 @@ image = pyautogui.locateOnScreen("1.PNG")
 print(image)
 pyautogui.moveTo(image[0]+(image[2]/2), image[1]+(image[3]/2), duration=0.5)
 pyautogui.click()
+
+
+# wait for image
+# click image 
+# click and type 
