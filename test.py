@@ -8,6 +8,7 @@ pyautogui.moveTo(100, 200, duration=0.5)
 
 print ("Hello this is Josh")
 
+print("hello world")
 image = pyautogui.locateOnScreen("Capture.PNG")
 print(image)
 pyautogui.moveTo(image[0], image[1], duration=0.5)
