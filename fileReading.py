@@ -1,14 +1,10 @@
 from pathlib import Path
 import os
 from functions import *
-import re
-import pyautogui
 
-moveFind = re.compile(r"""move\((\d*),(\d*)\)""")
+
 
 # read the file
-
-
 def read_by_line(filename):
 
     input_file = open(Path("./") / filename)
@@ -17,8 +13,6 @@ def read_by_line(filename):
     return lines
 
 # determines if all commands and params in the text file are valid
-
-
 def are_commands_valid(list_of_lines):
 
     for line in list_of_lines:
@@ -41,20 +35,21 @@ def are_commands_valid(list_of_lines):
     return True
 
 
+
 # reads line and excutes appropiate command
 def parse_line(line):
 
     command = line[0: 10].lower()
-    print(command)
     if command == "imageclick":
+        print(command)
         param = line.split(" ")[1]
-        param = param[1:len(param)-1]
+        param = param[1:len(param)-2]
         print(param)
         imageClick(param)
 
     command = line[0: 5].lower()
-    print(command)
     if command == "click":
+        print(command)
         params = line.split(" ")[1]
         first_param = params[1: len(params)-2].split(",")[0]
         second_param = params[1: len(params)-2].split(",")[1]
@@ -63,19 +58,60 @@ def parse_line(line):
         moveClick(int(first_param), int(second_param))
 
     command = line[0: 4].lower()
-    print(command)
     if command == "move":
+        print(command)
         params = line.split(" ")[1]
-        first_param = params[1: len(params)-2].split(",")[0]
+        first_param = params[1: len(params)-1].split(",")[0]
         second_param = params[1: len(params)-2].split(",")[1]
         print(first_param)
         print(second_param)
         move(int(first_param), int(second_param))
+<<<<<<< HEAD
+=======
+
+    command = line[0: 5].lower()
+    if command == "write":
+        print(command)
+        param = line.split(" ")[1]
+        param = param[1: len(param)-2]
+        write(param)
+
+    command = line[0: 7].lower()
+    if command == "typekey":
+        print(command)
+        param = line.split(" ")[1]
+        param = param[1: len(param)-2]
+        print(param)
+        typeKey(param)
+
+    command = line[0: 8].lower()
+    if command == "scrollup":
+        print(command)
+        param = line.split(" ")[1]
+        param = param[1: len(param)-1]
+        typeKey(param)   
+
+    command = line[0: 10].lower()
+    if command == "scrolldown":
+        print(command)
+        param = line.split(" ")[1]
+        param = param[1: len(param)-1]
+        typeKey(param)
+
+    command = line[0: 5].lower()
+    if command == "delay":
+        print(command)
+        param = line.split(" ")[1]
+        param = param[1: len(param)-1]
+        write(param)
+
+>>>>>>> fb5879655aac99d1d11587f50cd5b1df4a79781e
 
 
 lines = read_by_line("input.txt")
 if are_commands_valid(lines):
     for line in lines:
+        time.sleep(1)
         parse_line(line)
 
 print("done")
