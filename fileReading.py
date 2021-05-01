@@ -43,7 +43,7 @@ def are_commands_valid(list_of_lines):
 
 # reads line and excutes appropiate command
 def parse_line(line):
-    
+
     command = line[0: 10].lower()
     print(command)
     if command == "imageclick":
@@ -70,7 +70,7 @@ def parse_line(line):
         second_param = params[1: len(params)-2].split(",")[1]
         print(first_param)
         print(second_param)
-        moveClick(int(first_param), int(second_param))
+        move(int(first_param), int(second_param))
 
 
 lines = read_by_line("input.txt")
