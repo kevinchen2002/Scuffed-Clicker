@@ -1,7 +1,7 @@
 click (x,y)
+imageClick (imageFile)
 move (x,y)
 find (imageFile)
-clickImage (imageFile)
 type (string)
 typeKey (comma-seperated list of keys)
 scrollUp (units)

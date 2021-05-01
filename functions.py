@@ -3,7 +3,7 @@ import datetime
 import time
 
 mouseSpeed = 0.5
-timeOut = 5
+timeOut = 30
 
 
 def moveClick(xPos, yPos):
