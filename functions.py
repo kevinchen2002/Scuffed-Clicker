@@ -3,7 +3,7 @@ import datetime
 import time
 
 mouseSpeed = 0.5
-timeOut = 10
+timeOut = 5
 
 
 def moveClick(xPos, yPos):
@@ -52,14 +52,14 @@ def scrollDown(units):
 
 
 def delay(delaySeconds):
-    sleep(delaySeconds)
+    time.sleep(delaySeconds)
 
 
 def waitUntil(targetTime):
     while True:
         currentTime = time.time()
         if (targetTime > currentTime):
-            sleep(1)
+            time.sleep(1)
             print(currentTime)
         else:
             continue
@@ -71,3 +71,7 @@ def waitUntil(targetTime):
 # imageClick("chrome.png")
 # enterKeyboard(0, 0, "youtube.com")
 # imageClick("youtube.png")
+
+delay(2)
+p = pyautogui.position()
+print(p[0], p[1])

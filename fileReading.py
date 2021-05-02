@@ -44,6 +44,7 @@ def parse_line(line):
         print(command)
         param = line.split(" ")[1]
         param = param[1:len(param)-2]
+        param = str(Path("./images") / param)
         print(param)
         imageClick(param)
 
@@ -66,8 +67,6 @@ def parse_line(line):
         print(first_param)
         print(second_param)
         move(int(first_param), int(second_param))
-<<<<<<< HEAD
-=======
 
     command = line[0: 5].lower()
     if command == "write":
@@ -88,15 +87,17 @@ def parse_line(line):
     if command == "scrollup":
         print(command)
         param = line.split(" ")[1]
-        param = param[1: len(param)-1]
-        scrollUp(param)   
+        param = param[1: len(param)-2]
+        scrollUp(int(param))
 
     command = line[0: 10].lower()
     if command == "scrolldown":
         print(command)
         param = line.split(" ")[1]
-        param = param[1: len(param)-1]
-        scrollDown(param)
+        param = param[1: len(param)-2]
+        scrollDown(int(param))
+
+
 
     command = line[0: 5].lower()
     if command == "delay":
@@ -106,13 +107,16 @@ def parse_line(line):
         param = param[1: len(param)-1]
         delay(param)
 
->>>>>>> fb5879655aac99d1d11587f50cd5b1df4a79781e
 
+filename = input("Please enter a filename or q to quit ")
+while filename != "q":   
 
-lines = read_by_line("order.txt")
-if are_commands_valid(lines):
-    for line in lines:
-        time.sleep(1)
-        parse_line(line)
+    lines = read_by_line(filename)
+    if are_commands_valid(lines):
+        for line in lines:
+            time.sleep(0.5)
+            parse_line(line)
+
+    filename = input("Please enter a filename or q to quit ")
 
 print("done")
