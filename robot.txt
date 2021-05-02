@@ -1,0 +1,4 @@
+imageClick (chromelick.png)
+write (https://www.google.com/recaptcha/api2/demo)
+typeKey (enter)
+imageClick (captcha.png)
