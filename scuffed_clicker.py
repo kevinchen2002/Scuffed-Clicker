@@ -223,10 +223,11 @@ def parse_line(line):
         param = param[1: len(param)-1]
         delay(param)
 
-
-foldername = "blank"
+foldername = " "
 while foldername != "q":
     foldername = input("Please enter the folder to run (or q to quit): ")
+    if foldername == "q":
+        break
     lines = read_by_line(foldername)
     if are_commands_valid(lines):
         for line in lines:
@@ -235,3 +236,4 @@ while foldername != "q":
                 break
 
 print("done")
+pyautogui.hotkey('alt','q')
