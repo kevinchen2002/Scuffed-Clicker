@@ -3,7 +3,6 @@ import os
 from functions import *
 
 
-
 # read the file
 def read_by_line(filename):
 
@@ -13,8 +12,9 @@ def read_by_line(filename):
     return lines
 
 # determines if all commands and params in the text file are valid
-def are_commands_valid(list_of_lines):
 
+
+def are_commands_valid(list_of_lines):
     for line in list_of_lines:
         try:
             command = line.split(" ")[0].lower()
@@ -35,7 +35,6 @@ def are_commands_valid(list_of_lines):
     return True
 
 
-
 # reads line and excutes appropiate command
 def parse_line(line):
 
@@ -49,6 +48,7 @@ def parse_line(line):
 
     command = line[0: 5].lower()
     if command == "click":
+
         print(command)
         params = line.split(" ")[1]
         first_param = params[1: len(params)-2].split(",")[0]
@@ -66,8 +66,6 @@ def parse_line(line):
         print(first_param)
         print(second_param)
         move(int(first_param), int(second_param))
-<<<<<<< HEAD
-=======
 
     command = line[0: 5].lower()
     if command == "write":
@@ -89,7 +87,7 @@ def parse_line(line):
         print(command)
         param = line.split(" ")[1]
         param = param[1: len(param)-1]
-        scrollUp(param)   
+        scrollUp(param)
 
     command = line[0: 10].lower()
     if command == "scrolldown":
@@ -106,13 +104,11 @@ def parse_line(line):
         param = param[1: len(param)-1]
         delay(param)
 
->>>>>>> fb5879655aac99d1d11587f50cd5b1df4a79781e
 
-
-lines = read_by_line("order.txt")
-if are_commands_valid(lines):
-    for line in lines:
-        time.sleep(1)
-        parse_line(line)
+lines = read_by_line("robot.txt")
+# if are_commands_valid(lines):
+for line in lines:
+    time.sleep(1)
+    parse_line(line)
 
 print("done")
