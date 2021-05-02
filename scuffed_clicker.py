@@ -86,8 +86,8 @@ imageFind = re.compile(r"""imageclick\s\((.*?)\)""")
 clickFind = re.compile(r"""click\s\((\d*),(\d*)\)""")
 writeFind = re.compile(r"""write\s\((.*?)\)""")
 delayFind = re.compile(r"""delay\s\((\d*?)\)""")
-scollDownFind = re.compile(r"""scrolldown\s\((\d*?)\)""")
-scollUpFind = re.compile(r"""scrollup\s\((\d*?)\)""")
+scrollDownFind = re.compile(r"""scrolldown\s\((\d*?)\)""")
+scrollUpFind = re.compile(r"""scrollup\s\((\d*?)\)""")
 typeKeyFind = re.compile(r"""typekey\s\((.*?)\)""")
 
 
@@ -130,14 +130,14 @@ def are_commands_valid(list_of_lines):
                 continue
 
         elif line.startswith("scrollup"):
-            check = typekeyFind.search(line)
+            check = typeKeyFind.search(line)
             if (check == None):
                 return False
             else:
                 continue
 
         elif line.startswith("scrolldown"):
-            check = scrolldownFind.search(line)
+            check = scrollDownFind.search(line)
             if (check == None):
                 return False
             else:
