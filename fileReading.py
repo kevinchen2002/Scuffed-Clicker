@@ -77,6 +77,7 @@ def read_by_line(foldername):
 
     return lines
 
+
 moveFind = re.compile(r"""move\s\((\d*),(\d*)\)""")
 imageFind = re.compile(r"""imageclick\s\((.*?)\)""")
 clickFind = re.compile(r"""click\s\((\d*),(\d*)\)""")
@@ -148,6 +149,8 @@ def are_commands_valid(list_of_lines):
     return True
 
 # reads line and excutes appropiate command
+
+
 def parse_line(line):
 
     command = line[0: 10].lower()
@@ -208,8 +211,6 @@ def parse_line(line):
         param = param[1: len(param)-2]
         scrollDown(int(param))
 
-
-
     command = line[0: 5].lower()
     if command == "delay":
         print(command)
@@ -220,8 +221,7 @@ def parse_line(line):
 
 
 foldername = input("Please enter the folder to run (or q to quit): ")
-while foldername != "q":   
-
+while foldername != "q":
     lines = read_by_line(foldername)
     if are_commands_valid(lines):
         for line in lines:
