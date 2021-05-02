@@ -4,7 +4,7 @@ from functions import *
 import re
 import pyautogui
 
-moveFind = re.compile(r"""move\((\d*),(\d*)\)""")
+moveFind = re.compile(r"""move\s\((\d*),(\d*)\)""")
 imageFind = re.compile(r"""imageclick\s\((.*?)\)""")
 clickFind = re.compile(r"""click\s\((\d*),(\d*)\)""")
 writeFind = re.compile(r"""write\s\((.*?)\)""")
@@ -24,51 +24,52 @@ def are_commands_valid(list_of_lines):
             else:
                 continue
 
-        else if line.startswith("move"):
+        elif line.startswith("move"):
             check = moveFind.search(line)
             if (check == None):
                 return False
             else:
                 continue
 
-        else if line.startswith("clickfind"):
+        elif line.startswith("clickfind"):
             check = clickFind.search(line)
             if (check == None):
                 return False
             else:
                 continue
 
-        else if line.startswith("write"):
+        elif line.startswith("write"):
             check = writeFind.search(line)
             if (check == None):
                 return False
             else:
                 continue
 
-        else if line.startswith("typekey"):
+        elif line.startswith("typekey"):
+            check = typeKeyFind.search(line)
+            if (check == None):
+                return False
+            else:
+                continue
+
+        elif line.startswith("scrollup"):
             check = typekeyFind.search(line)
             if (check == None):
                 return False
             else:
                 continue
 
-        else if line.startswith("scrollup"):
-            check = typekeyFind.search(line)
-            if (check == None):
-                return False
-            else:
-                continue
-
-        else if line.startswith("scrolldown"):
+        elif line.startswith("scrolldown"):
             check = scrolldownFind.search(line)
             if (check == None):
                 return False
             else:
                 continue
 
-        else if line.startswith("delay"):
+        elif line.startswith("delay"):
             check = delayFind.search(line)
             if (check == None):
                 return False
             else:
                 continue
+    return True
