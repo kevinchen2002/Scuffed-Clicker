@@ -1,7 +1,72 @@
 from pathlib import Path
 import os
-from functions import *
 import re
+import pyautogui
+import datetime
+import time
+
+mouseSpeed = 0.5
+timeOut = 5
+
+
+def moveClick(xPos, yPos):
+    pyautogui.moveTo(xPos, yPos, duration=mouseSpeed)
+    pyautogui.click()
+
+
+def imageClick(fileName):
+    startTime = time.time()
+    while True:
+        currentTime = time.time()
+        timePassed = currentTime - startTime
+        if (timePassed > timeOut):
+            print("Timeout: Image not found")
+            return
+        try:
+            pyautogui.click(fileName, duration=mouseSpeed)
+            break
+        except:
+            continue
+
+
+def move(xPos, yPos):
+    pyautogui.moveTo(xPos, yPos, duration=mouseSpeed)
+
+
+def write(string):
+    pyautogui.write(string)
+
+
+def typeKey(string):
+    if string == 'enter':
+        pyautogui.write(['enter'])
+    if string == 'backspace':
+        pyautogui.write(['backspace'])
+    else:
+        pyautogui.write([string])
+
+
+def scrollUp(units):
+    pyautogui.scroll(units)
+
+
+def scrollDown(units):
+    pyautogui.scroll(-units)
+
+
+def delay(delaySeconds):
+    time.sleep(delaySeconds)
+
+
+def waitUntil(targetTime):
+    while True:
+        currentTime = time.time()
+        if (targetTime > currentTime):
+            time.sleep(1)
+            print(currentTime)
+        else:
+            continue
+
 
 # read the file
 def read_by_line(foldername):
