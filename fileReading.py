@@ -5,9 +5,10 @@ from functions import *
 
 
 # read the file
-def read_by_line(filename):
+def read_by_line(foldername):
 
-    input_file = open(Path("./") / filename)
+    filename = foldername + ".txt"
+    input_file = open(Path("./") / foldername / filename)
     lines = input_file.readlines()
 
     return lines
@@ -108,15 +109,15 @@ def parse_line(line):
         delay(param)
 
 
-filename = input("Please enter a filename or q to quit ")
-while filename != "q":   
+foldername = input("Please enter the folder to run (or q to quit): ")
+while foldername != "q":   
 
-    lines = read_by_line(filename)
+    lines = read_by_line(foldername)
     if are_commands_valid(lines):
         for line in lines:
             time.sleep(0.5)
             parse_line(line)
 
-    filename = input("Please enter a filename or q to quit ")
+    foldername = input("Please enter the folder to run (or q to quit): ")
 
 print("done")
