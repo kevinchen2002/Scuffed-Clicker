@@ -1,8 +1,7 @@
 from pathlib import Path
 import os
 from functions import *
-
-
+import re
 
 # read the file
 def read_by_line(foldername):
@@ -13,29 +12,75 @@ def read_by_line(foldername):
 
     return lines
 
-# determines if all commands and params in the text file are valid
+moveFind = re.compile(r"""move\s\((\d*),(\d*)\)""")
+imageFind = re.compile(r"""imageclick\s\((.*?)\)""")
+clickFind = re.compile(r"""click\s\((\d*),(\d*)\)""")
+writeFind = re.compile(r"""write\s\((.*?)\)""")
+delayFind = re.compile(r"""delay\s\((\d*?)\)""")
+scollDownFind = re.compile(r"""scrolldown\s\((\d*?)\)""")
+scollUpFind = re.compile(r"""scrollup\s\((\d*?)\)""")
+typeKeyFind = re.compile(r"""typekey\s\((.*?)\)""")
+
+
 def are_commands_valid(list_of_lines):
-
     for line in list_of_lines:
-        try:
-            command = line.split(" ")[0].lower()
-            params = line.split(" ")[1]
-
-        # no spaces included
-        except:
-            return False
-
-        if (command == "click"):
-
-            first_param = params[1: len(params)-2].split(",")[0]
-            second_param = params[1: len(params)-2].split(",")[1]
-
-            # if params are proper numbers
-            if not(first_param.isnumeric() and second_param.isnumeric()):
+        line.lower()
+        if line.startswith("imageclick"):
+            check = imageFind.search(line)
+            if (check == None):
                 return False
+            else:
+                continue
+
+        elif line.startswith("move"):
+            check = moveFind.search(line)
+            if (check == None):
+                return False
+            else:
+                continue
+
+        elif line.startswith("clickfind"):
+            check = clickFind.search(line)
+            if (check == None):
+                return False
+            else:
+                continue
+
+        elif line.startswith("write"):
+            check = writeFind.search(line)
+            if (check == None):
+                return False
+            else:
+                continue
+
+        elif line.startswith("typekey"):
+            check = typeKeyFind.search(line)
+            if (check == None):
+                return False
+            else:
+                continue
+
+        elif line.startswith("scrollup"):
+            check = typekeyFind.search(line)
+            if (check == None):
+                return False
+            else:
+                continue
+
+        elif line.startswith("scrolldown"):
+            check = scrolldownFind.search(line)
+            if (check == None):
+                return False
+            else:
+                continue
+
+        elif line.startswith("delay"):
+            check = delayFind.search(line)
+            if (check == None):
+                return False
+            else:
+                continue
     return True
-
-
 
 # reads line and excutes appropiate command
 def parse_line(line):
@@ -118,6 +163,6 @@ while foldername != "q":
             time.sleep(0.5)
             parse_line(line)
 
-    foldername = input("Please enter the folder to run (or q to quit): ")
+foldername = input("Please enter the folder to run (or q to quit): ")
 
 print("done")
