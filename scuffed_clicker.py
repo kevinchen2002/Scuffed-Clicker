@@ -3,7 +3,9 @@ import os
 import re
 import pyautogui
 import datetime
-import time
+import timehttps://www.google.com/recaptcha/api2/demo
+
+
 
 mouseSpeed = 0.5
 timeOut = 5
@@ -79,7 +81,7 @@ def read_by_line(foldername):
 
 moveFind = re.compile(r"""move\s\((\d*),(\d*)\)""")
 imageFind = re.compile(r"""imageclick\s\((.*?)\)""")
-clickFind = re.compile(r"""click\s\((\d*),(\d*)\)""")
+clickFind = re.compile(r"""click\s\((\d*),(\d*)\)""")   
 writeFind = re.compile(r"""write\s\((.*?)\)""")
 delayFind = re.compile(r"""delay\s\((\d*?)\)""")
 scollDownFind = re.compile(r"""scrolldown\s\((\d*?)\)""")
