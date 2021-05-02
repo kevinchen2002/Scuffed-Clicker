@@ -1,7 +1,0 @@
-click (x,y)
-imageClick (imageFile)
-move (x,y)
-write (string)
-typeKey (key)
-scrollUp (units)
-scrollDown (units)
