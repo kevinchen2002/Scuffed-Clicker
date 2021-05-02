@@ -3,12 +3,12 @@ import os
 import re
 import pyautogui
 import datetime
-import timehttps://www.google.com/recaptcha/api2/demo
-
-
+import time
 
 mouseSpeed = 0.5
 timeOut = 5
+
+# Functions for doing pyautogui functions
 
 
 def moveClick(xPos, yPos):
@@ -23,7 +23,7 @@ def imageClick(fileName):
         timePassed = currentTime - startTime
         if (timePassed > timeOut):
             print("Timeout: Image not found")
-            return
+            return False
         try:
             pyautogui.click(fileName, duration=mouseSpeed)
             break
@@ -80,9 +80,10 @@ def read_by_line(foldername):
     return lines
 
 
+# regex for checking if the commands are okay
 moveFind = re.compile(r"""move\s\((\d*),(\d*)\)""")
 imageFind = re.compile(r"""imageclick\s\((.*?)\)""")
-clickFind = re.compile(r"""click\s\((\d*),(\d*)\)""")   
+clickFind = re.compile(r"""click\s\((\d*),(\d*)\)""")
 writeFind = re.compile(r"""write\s\((.*?)\)""")
 delayFind = re.compile(r"""delay\s\((\d*?)\)""")
 scollDownFind = re.compile(r"""scrolldown\s\((\d*?)\)""")
@@ -162,7 +163,8 @@ def parse_line(line):
         param = param[1:len(param)-2]
         param = str(Path("./images") / param)
         print(param)
-        imageClick(param)
+        if (imageClick(param)) == False:
+            return False
 
     command = line[0: 5].lower()
     if command == "click":
@@ -222,14 +224,14 @@ def parse_line(line):
         delay(param)
 
 
-foldername = input("Please enter the folder to run (or q to quit): ")
+foldername = "blank"
 while foldername != "q":
+    foldername = input("Please enter the folder to run (or q to quit): ")
     lines = read_by_line(foldername)
     if are_commands_valid(lines):
         for line in lines:
             time.sleep(0.5)
-            parse_line(line)
-
-foldername = input("Please enter the folder to run (or q to quit): ")
+            if (parse_line(line) == False):
+                break
 
 print("done")
